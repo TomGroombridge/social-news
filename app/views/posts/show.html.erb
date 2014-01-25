@@ -1,0 +1,8 @@
+<h1><%= @post.title %> </h1>
+
+<p><%= @post.content %></p>
+
+<h4><%= link_to 'Add a comment', new_post_comment_path(@post) %></h4>
+ <% @post.comments.each do |comment| %> 
+		<p> <%= comment.content%> </p>
+		<% end %>
