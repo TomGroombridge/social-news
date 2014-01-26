@@ -1,6 +1,5 @@
 <%=form_for [@post, @comment] do |form| %>
-	<%= form.label :name %>
-	<%= form.text_field :name %>
+	Comment by: <%= current_user.email %>
 	<br>
 	<%= form.label :content, 'Comment' %>
 	<%= form.text_area :content %>
