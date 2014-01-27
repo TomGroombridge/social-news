@@ -1,7 +1,12 @@
 <% @posts.each do |post| %>
+
+
 	<h1><%= link_to post.title, post_path(post) %></h1>
 	<h2>Created <%= time_ago_in_words post.created_at %> ago</h2>
 	<p><%= truncate post.content, length: 140 %></p>
+
+	<h3 class='votes_count'><%= post.points %></h3>
+	<%= button_to 'like', post_votes_path(post, up: true) %>
 
 	<% if post.user == current_user %>
 		<%= link_to 'Edit this post', edit_post_path(post) %>

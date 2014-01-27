@@ -3,15 +3,12 @@ require 'spec_helper'
 describe 'commenting' do 
 
 	before do 
+		user = create(:user)
 		Post.create(title: 'Hello world')
+		login_as user
 	end
 
 		it "can add a comment to a post" do 
-			visit '/users/sign_up'
-			fill_in "user[email]", with: "a@a.com"
-			fill_in "user[password]", with: "12345678"
-			fill_in "user[password_confirmation]", with: "12345678"
-			click_button 'Sign up'
 			visit '/posts'
 			click_link 'Hello world'
 			click_link 'Add a comment'

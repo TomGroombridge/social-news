@@ -2,8 +2,11 @@
 
 <p><%= @post.content %></p>
 
+
 <h4><%= link_to 'Add a comment', new_post_comment_path(@post) %></h4>
  <% @post.comments.each do |comment| %> 
+
+  
 
  	Comment by: <%= current_user.email %> 
  	<br>

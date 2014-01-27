@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
   
+  get "like/create"
+
   devise_for :users
   root "posts#index"
   resources :posts do
     resources :comments
+    resources :votes
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
