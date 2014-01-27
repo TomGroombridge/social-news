@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe 'creating new post' do
 
+	before do
+		user = create(:user)
+		login_as user
+	end
+
 	context 'given a title and post' do 
 
 		it 'should display the new post on the list of posts' do

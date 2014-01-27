@@ -3,7 +3,9 @@ require 'spec_helper'
 describe ' editing posts' do 
 
 	before do
-		Post.create title: 'first post'
+		user = create(:user)
+		Post.create title: 'first post', user: user
+		login_as user
 	end
 
 	it ' can change the title of the post' do 
@@ -20,4 +22,6 @@ describe ' editing posts' do
 		click_link 'Delete this post'
 		expect(page).not_to have_content 'new title'
 	end
+
+
 end
